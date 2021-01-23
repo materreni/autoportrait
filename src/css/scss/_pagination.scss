@@ -1,0 +1,257 @@
+.pagination-wrapper{
+  width: 100%;
+  height: 44px;
+  overflow: hidden;
+  left: 0;
+  right: -15px;
+  bottom: 0;
+  text-align: center;
+  position: absolute;
+}
+
+/* a given scroll position fixes element, 
+if not it stays at the bottom of the page */
+.pagination-wrapper-fixed{
+  position: fixed;
+  width: 100%;
+  right: 0;  
+  bottom: 0;
+  z-index: 2;
+  overflow: visible;
+}
+
+.pagination-wrapper::before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  background: var(--emphasis-color);
+}
+
+/*-----------------*/
+/* PAGINATION LIST */
+/*-----------------*/
+
+/* CSS BREAKPOINTS to limit JS 
+total number of list items generated */
+body::before {
+  content: "3"; /* should be > 1 */
+  display: none;
+  visibility: hidden;
+}
+
+@media screen and (min-width: 31em){ body::before{content: "4";} }
+@media screen and (min-width: 34em){ body::before{content: "5";} }
+@media screen and (min-width: 37em){ body::before{content: "6";} }
+@media screen and (min-width: 40em){ body::before{content: "7";} }
+@media screen and (min-width: 43em){ body::before{content: "8";} }
+@media screen and (min-width: 46em){ body::before{content: "9";} }
+@media screen and (min-width: 49em){ body::before{content: "10";} }
+@media screen and (min-width: 52em){ body::before{content: "11";} }
+/* 55em here .skiped-pages start to take li width x 2 */
+@media screen and (min-width: $alternate-nodes-medium){ body::before{content: "11";} }
+
+/* ------------------ */
+
+.pagination{
+  display: inline-flex;
+
+}
+
+.pagination li{
+  margin: 0;
+  font-family: "Trade Gothic Bold Condensed No. 20", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  width: 36px;
+  position: relative;
+}
+
+@media screen and (min-width: $post-fit-mobile-320){
+  .pagination li{
+    width: 39px
+  }
+}
+
+.pagination a{
+  color: #000;
+  text-decoration: none;
+  padding: 15px 0 14px 0;
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (min-width: $alternate-nodes-medium){
+  .pagination a{
+    width: 46px;
+    padding: 15px 0 14px 0;
+  }
+}
+
+.pagination a:hover{
+  text-shadow: 2px -1px 0 cyan;
+}
+
+.pagination a:focus{
+  background: none;
+  border: none;
+}
+
+.pagination a::before{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: calc(50% - 18px);
+  width: 32px;
+  height: 38px;
+}
+
+@media screen and (min-width: $post-fit-mobile-320){
+  .pagination a::before{
+    left: calc(50% - 20px);
+    width: 35px;
+  }
+}
+
+.pagination a:focus::before{
+  background: linear-gradient(var(--emphasis-color), var(--emphasis-color)) padding-box, 
+  repeating-linear-gradient(-45deg, rgba(0,0,0,.2) 0, rgba(0,0,0,.2) 25%, transparent 0, transparent 50%);
+  background-size: 4px 4px;
+  border: 3px solid transparent;
+}
+
+.pagination-current a::after{
+  content: '';
+  position: absolute;
+  bottom: calc(50% - 2px);
+  left: 12px;
+  width: calc(100% - 24px);
+  height: 2px;
+  background-color: #000;
+}
+
+
+/* NEXT/PREV ARROWS */
+
+.prev-arrow, .next-arrow{
+  position: relative;
+  overflow: hidden;
+  width: 42px;
+  height: 44px;
+}
+
+.prev-arrow a, .next-arrow a{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.prev-arrow a::before, .next-arrow a::before{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: calc(50% - 19px);
+  width: 32px;
+  height: 38px;
+}
+
+.prev-arrow svg, .next-arrow svg{
+  position: absolute;
+  top: 16px;
+  right: auto;
+  left: 13px;
+}
+
+.next-arrow svg{
+  right: 13px;
+  left: auto;
+}
+
+@media screen and (min-width: $alternate-nodes-medium){
+
+  .prev-arrow, .next-arrow{
+    width: 74px;
+  }
+
+  .prev-arrow a::before, .next-arrow a::before{
+    width: 78px;
+    left: calc(50% - 43px); 
+  }
+
+}
+
+.prev-arrow svg > *, .next-arrow svg > *{
+  fill: #C6C305;
+}
+
+.prev-arrow a svg > *, .next-arrow a svg > *{
+  fill: #000;
+}
+
+.prev-arrow svg rect{
+  transform: scaleX(.25);
+}
+
+.next-arrow svg rect{ 
+  transform: translateX(47px) scaleX(.25);
+}
+
+.prev-arrow a:hover svg, .next-arrow a:hover svg{
+  filter: drop-shadow(1px 3px 0 cyan)
+}
+
+li.skiped-pages{
+  position: relative;
+  margin: 0 6px 0 4px;
+  width: 15px;
+  height: 45px;
+  display: block;
+  color: var(--emphasis-color);
+  cursor: default;
+  user-select: none;
+}
+
+@media screen and (min-width: $post-fit-mobile-320){
+  li.skiped-pages{ 
+    width: 37px;  
+    margin-left: 6px;
+  }
+}
+
+.skiped-pages::before{
+  content: ' ';
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  background: #000;
+  height: 3px;
+  width: 100%;
+}
+
+@media screen and (min-width: $alternate-nodes-medium){
+  
+  li.prev-arrow, li.next-arrow{
+    width: 88px;
+  }
+
+  .prev-arrow svg rect{
+    transform: scaleX(1);
+  }
+
+  .next-arrow svg rect{ 
+    transform: translateX(0) scaleX(1);
+  }
+
+  li.skiped-pages{
+    width: 86px;
+    margin: 0 0 0 5px;
+  }
+
+}

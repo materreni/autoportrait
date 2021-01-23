@@ -1,0 +1,46 @@
+body{
+  font: 100% / 1 "Cooper Lt BT W08 Regular", "Times New Roman", Times, serif;
+  background: var(--background-color);
+  color: #000;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  max-width: $top-width;
+  margin-left: auto;
+  margin-right: auto;
+  /* usefull space if vwidth is exactly "$top-width" */
+  box-sizing: content-box;
+  padding-right: 15px;
+  padding-left: 15px;
+  position: relative;
+}
+
+/*--------------------------*/
+/* Layout menus + hero text */
+/*------------------------- */
+
+  header{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+  }
+
+  .menu-lang{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .home-intro{
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+  }
+
+  .menu-site{
+    grid-column: 3 / 4;   
+    grid-row: 1 / 2;
+    justify-self: end;
+  }
+

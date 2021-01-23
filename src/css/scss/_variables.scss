@@ -1,0 +1,27 @@
+:root{
+	/* colors */
+	--emphasis-color: #F7F406;
+	--background-color: #F7F7F7;
+}
+
+/* top-screen-limit */
+$top-width: 80em;
+
+/* menu */
+$menu-medium: 29em; 
+$menu-wide: 39em; 
+
+/* header */
+$center-header-top: 25em;
+$side-header-small: 33em;
+$side-header-small-medium: 40em;
+$side-header-medium: 52em;
+$side-header-big: 68em;
+
+/* nodes */
+$alternate-nodes-small: 29em;
+$alternate-nodes-medium: 55em;
+$alternate-nodes-wider: 65em;
+
+/* paginator */
+$post-fit-mobile-320: 24.25em;

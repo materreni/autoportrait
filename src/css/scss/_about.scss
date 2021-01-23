@@ -1,0 +1,159 @@
+.overflowXY{ 
+	overflow: hidden; 
+}
+
+.about{
+	visibility: hidden; /*  iOS Safari + VoiceOver display none focus bug */
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(247,247,247, .97);
+	z-index: 3;
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+	padding: 0 20px;
+	overflow-x: auto;
+}
+
+.about-display{
+	visibility: visible; /*  iOS Safari + VoiceOver display none focus bug */
+}
+
+.about-wrapper{
+	position: relative;
+	max-width: $top-width;
+	margin: 0 auto;
+}
+
+.about-text{
+	width: 100%;
+	margin: 0 auto;
+	padding: 4rem 0 3rem 0;
+	font-family: "Trade Gothic Condensed No. 18", Arial, Helvetica, sans-serif;
+	font-size: 1.125rem;
+	line-height: 1.4;
+}
+
+.about h2{
+	font-family: "Trade Gothic Bold Condensed No. 20", Arial, Helvetica, sans-serif;
+	font-size: 1.625rem;
+	line-height: 1.2;
+	margin-bottom: 3rem;
+	max-width: 28rem
+}
+
+.about p{
+	margin-bottom: 1rem;
+}
+
+.about cite{
+	font-family: "Trade Gothic Bold Condensed No. 20", Arial, Helvetica, sans-serif;
+}
+
+.about ul{
+	margin-left: 8px;
+}
+
+.about li{
+	margin-bottom: 10px;
+}
+
+.about a{
+	color: inherit;
+	text-decoration: none;
+	background: linear-gradient(var(--emphasis-color), var(--emphasis-color)) no-repeat;
+	background-size: 100% 9px;
+	background-position: 0 .95rem;
+}
+
+.about a:focus, .about a:hover{
+	outline: none;
+	text-decoration: none;
+	color: #000;
+	padding: 0 3px;
+	background: linear-gradient(var(--emphasis-color), var(--emphasis-color)) padding-box, 
+	repeating-linear-gradient(-45deg, #000 0, #000 25%, transparent 0, transparent 50% );
+	background-size: 4px 4px;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	margin-left: -3px;
+	margin-right: -3px;
+}
+
+.about-close{
+	outline: none;
+	box-sizing: border-box;
+	padding: 0;
+	border: none;
+	font: inherit;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	position: absolute;	
+	margin: 0;
+	top: 3px;
+	right: -13px;
+	width: 45px;
+	height: 45px;
+	background: url(../img/dialog-close.svg) no-repeat 16px 14px;
+	background-size: 18px 15px; 
+}
+
+.about-close:focus{ outline: none; }
+.about-close::-moz-focus-inner{ border: 0; }
+
+.about-close::before{
+	content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: calc(50% - 27px);
+  width: 44px;
+  height: 38px;
+}
+
+.about-close:focus::before{
+	background: linear-gradient(var(--background-color), var(--background-color)) padding-box, 
+  repeating-linear-gradient(-45deg, rgba(0,0,0,.2) 0, rgba(0,0,0,.2) 25%, transparent 0, transparent 50%);
+  background-size: 4px 4px;
+  border: 3px solid transparent;
+}
+
+
+@media screen and (min-width: $menu-wide) {
+
+	.about-text{
+		max-width: 39rem;
+		padding: 7rem 0 3rem 0;
+		font-size: 1.25rem;
+		line-height: 1.4;
+	}
+
+	.about h2{
+		font-size: 1.875rem;
+		line-height: 1.5;
+		margin-bottom: 1rem;
+		max-width: none;
+	}
+
+	.about p{
+		margin-bottom: 1.25rem;
+	}
+
+	.about-close{
+		top: 10px;
+		right: 0;
+	 	width: 68px;
+	 	height: 68px;
+	 	background: url(../img/dialog-close.svg) no-repeat 26px 25px;
+	 	background-size: 24px 20px; 
+	}
+
+	.about-close::before{
+	  left: calc(50% - 35px);
+	  height: 60px;
+	  width: 65px;
+	}
+
+}

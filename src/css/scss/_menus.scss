@@ -1,0 +1,303 @@
+/*-------------------------------*/
+/* General styles for both menus */
+/*-------------------------------*/
+
+.menu, .menu ul {
+  font-family: "Trade Gothic Bold Condensed No. 20", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  display: flex;
+}
+
+.menu-site{
+  flex-direction: row-reverse;
+}
+
+.menu-site ul{ 
+  display: none; /* toggled by JS */
+  position: absolute; 
+  top: 0;
+  right: 20px;
+  background: var(--background-color);
+  padding-left: 7rem;
+}
+
+@media screen and (min-width: 22em) {
+  .menu-site ul{ 
+    right: 30px;
+  }
+}
+
+@media screen and (min-width: 28em) {
+  .menu-site ul{ 
+     padding-left: 0;
+  }
+}
+
+.menu a{
+  color: #57595A;
+  font-size: .875rem;
+  letter-spacing: 0.015rem;
+  text-decoration: none;
+  display: block;
+  padding: 20px 8px 22px 7px;
+  position: relative;
+}
+
+.menu a:hover{ color: #000; }
+.menu a:active, .menu .menu-current a:hover{ color: #57595A; }
+
+.menu a:focus{ /* reduce default padding-top/bottom */
+  outline: none;
+  text-decoration: none;
+  color: #000;
+  background: linear-gradient(var(--emphasis-color), var(--emphasis-color)) padding-box, 
+  repeating-linear-gradient(-45deg, #000 0, #000 25%, transparent 0, transparent 50% );
+  background-size: 4px 4px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  margin-top: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+} 
+
+.menu a:active::after, 
+.menu .menu-current a::after{ /* crossline */
+  content: '';
+  position: absolute;
+  bottom: calc(50% - 1px);
+  left: 4px;
+  width: calc(100% - 8px);
+  height: 2px;
+  background-color: #FEF200;
+}
+
+.menu-site li:last-child a:active::after{
+  content: none;
+}
+
+/* crossline adjustments for lang menu thinner buttons */
+.menu.menu-lang a::after{
+  left: 5px;
+  width: calc(100% - 10px);
+}
+
+/* focus adjustments for all */
+.menu a:active::after, 
+.menu .menu-current a:focus::after{
+  bottom: calc(50% - 2px);
+}
+
+@media screen and (min-width: $menu-medium) {
+  .menu a{
+    font-size: .9375rem;
+  }
+}
+
+@media screen and (min-width: $menu-wide) {
+
+  .menu-site ul{ 
+    position: static;
+    background: transparent;
+    margin-right: 36px;
+  }
+
+  .menu a{
+    font-size: 1.0625rem;
+    letter-spacing: 0;
+    padding: 20px 16px 22px 16px;
+  }
+
+  .menu.menu-lang a::after {
+    left: 15px;
+    width: calc(100% - 30px);
+  }
+
+  .menu-site a:active::after, 
+  .menu-site .menu-current a::after{ /* crossline */
+    left: 12px;
+    width: calc(100% - 24px);
+  }
+
+}
+
+@media screen and (min-width: $menu-wide + 5em) {
+
+  .menu a{
+    padding: 20px 22px 22px 22px;
+  }
+
+}
+
+/*-----------------------------*/
+/* Styles for site menu button */
+/*-----------------------------*/
+
+.menu-site-toggle{
+  font: inherit;
+  line-height: 1;
+  padding: 0;
+  border: none;
+  color: #FFF; 
+  cursor: pointer;
+  background: transparent;
+  width: 46px;
+  height: 46px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  outline: none;
+}
+
+.menu-site-toggle::-moz-focus-inner{ border: 0;  }
+
+.menu-site-toggle polygon{
+  position: relative;
+  z-index: -1;
+  transform: scale(1) translateX(0);
+}
+
+.menu-site-toggle rect{
+ fill: currentColor;
+ transform: translate(-14px, -10px);
+ transform-origin: 50% 50%; 
+}
+
+/* background for focus outline */
+.menu-site-toggle::before{
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  right: 1px;
+  width: 19px;
+  height: 21px;
+}
+
+.menu-site-toggle:focus::before{
+  border: 2px dotted #FFF;
+}
+
+@media screen and (min-width: $menu-wide) {
+  .menu-site-toggle{
+    width: 72px;
+    height: 73px;
+  }
+
+  .menu-site-toggle rect{
+    transform: translate(0);
+  }
+
+  .menu-site-toggle::before{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 14px;
+    right: 12px;
+    width: 19px;
+    height: 21px;
+  }
+}
+
+/* after top limit menu is always displayed */
+@media screen and (min-width: $top-width){
+	
+	body::after {
+  	content: "expanded"; /* affects aria-exapanded */
+  	display: none;
+  	visibility: hidden;
+	}
+
+	.menu-site-toggle{
+		display: none;
+	}
+
+	.menu-site ul{ 
+		display: flex;
+		margin-right: 10px;
+	}
+
+}
+
+/* opened menu button styles */
+
+.menu-opened ul{ 
+  display: flex;
+}
+
+.menu-opened .menu-site-toggle{ 
+  z-index: 1;
+  width: 33px;
+}
+
+.menu-opened polygon{
+  opacity: 0;
+}
+
+.menu-opened .cross-vt{
+ fill: #BFBFBF;
+ transform: rotate(-45deg);
+ transform-origin: 22px 54px;
+}
+
+.menu-opened .cross-hz{
+ fill: #BFBFBF;
+ transform: rotate(-45deg);
+ transform-origin: 22px 54px;
+}
+
+.menu-opened .menu-site-toggle::before{
+  z-index: -1;
+  top: 5px;
+  right: 3px;
+  border: none;
+}
+
+.menu-opened .menu-site-toggle:focus::before{
+  background: linear-gradient(var(--emphasis-color), var(--emphasis-color)) padding-box, 
+  repeating-linear-gradient(-45deg, #000 0, #000 25%, transparent 0, transparent 50% );
+  background-size: 4px 4px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.menu-opened .menu-site-toggle:focus .cross-vt, 
+.menu-opened .menu-site-toggle:focus .cross-hz{
+  fill: #000;
+}
+
+@media screen and (min-width: $menu-wide) {
+
+  .menu-opened .menu-site-toggle{ 
+    z-index: 1;
+    width: 72px;
+  }
+
+  .menu-opened .cross-vt{
+   fill: #2B2B2B;
+   transform: rotate(-45deg);
+   transform-origin: 48px 28px;
+  }
+
+  .menu-opened .cross-hz{
+   fill: #2B2B2B;
+   transform: rotate(-45deg);
+   transform-origin: 48px 28px;
+  }
+
+  .menu-opened .menu-site-toggle:focus .cross-vt, 
+  .menu-opened .menu-site-toggle:focus .cross-hz{
+    fill: #2B2B2B;
+  }
+
+  .menu-opened .menu-site-toggle::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 17px;
+    left: 37px;
+    width: 21px;
+    height: 20px;
+  }
+
+}

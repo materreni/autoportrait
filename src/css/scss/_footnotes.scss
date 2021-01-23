@@ -1,0 +1,173 @@
+/*----------------------*/
+/* Styles for JS toggle */
+/*----------------------*/
+.node-text .footnote-text{ display: none; }
+.footnote-expanded .footnote-text{ display: block; }
+
+/*-------------------*/
+/*  Footnote number  */
+/*-------------------*/
+.footnote-number{
+	font-size: .8125rem;
+	line-height: 1;
+	text-decoration: none;
+	position: relative;
+	display: inline-block;
+	padding-top: .5rem;
+	bottom: .4375rem;
+	color: #000;
+	text-shadow: 2px 2px 1px var(--emphasis-color);
+}
+
+.footnote-number:hover, .footnote-number:focus{
+	text-shadow: 2px 2px 1px cyan;
+} 
+
+.footnote-number::before{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: 3px;
+	left: calc(50% - 15px);
+	width: 25px;
+	height: 20px;
+}	
+
+.footnote-number:focus::before{
+	background: linear-gradient(var(--background-color), var(--background-color)) padding-box, 
+	repeating-linear-gradient(-45deg, rgba(0,0,0,.2) 0, rgba(0,0,0,.2) 25%, transparent 0, transparent 50%);
+	background-size: 4px 4px;
+	border: 3px solid transparent;
+}	
+
+.footnote-expanded .footnote-number::before{
+	content: none;
+}
+
+.node-text-liked .footnote-number:focus::before{
+	outline: 2px dotted grey;
+	z-index: 1;
+	background: none;
+	left: calc(50% - 12px);
+	width: 20px;
+}
+
+.footnote-expanded .footnote-number:focus{
+	text-shadow: 2px 2px 1px var(--emphasis-color);
+}
+
+/*  */
+.footnote-expanded .footnote-number, .footnote-expanded .footnote-number:focus{
+	z-index: 2;
+	background: url(../img/dialog.svg) no-repeat top center;
+}
+
+/*-------------------*/
+/* Footnote tooltip  */
+/*-------------------*/
+
+.footnote-expanded .node-text{ position: relative; }
+
+
+/* In case there's 1 or 2 lines of text,
+ this makes the end of text absolute bottom, not like btn height */
+@media screen and (min-width: $alternate-nodes-medium) { 
+	.autoportrait-nodes > .footnote-expanded{ 
+		grid-template-rows: auto auto auto; 
+	}	
+	.footnote-expanded .btn-like{ 
+		grid-row: 2 / 4; 
+	}
+}
+
+.footnote-expanded .footnote-text{
+	position: absolute;
+	z-index: 1;
+	bottom: 1.8125rem;
+	width: calc(100vw - 45px);
+	left: auto;
+  right: auto;
+  margin: 0 auto;
+	box-sizing: border-box;
+  padding: 25px 28px 25px 25px;
+	border: 1px solid #4B4E50;
+	box-shadow: 0 0 0 3px var(--emphasis-color);
+	background: var(--background-color);
+	font-family: "Trade Gothic Condensed No. 18", Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	line-height: 1.3;
+}
+
+.footnote-expanded:nth-child(even) .footnote-text{
+	right: 0;
+}
+
+@media screen and (min-width: $alternate-nodes-small + 8em) { 
+	.footnote-expanded .footnote-text{
+		font-size: 1.0625rem;
+		bottom: 1.9375rem;
+		padding: 26px 32px 29px 32px;
+		min-width: 100%;
+  	width: 30rem;
+  	margin: 0;
+	}
+}
+
+.footnote-close{
+	outline: none;
+	box-sizing: border-box;
+	padding: 0;
+  border: none;
+  font: inherit;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+	position: absolute;
+	top: -6px;
+	right: -10px;
+	margin: 0;
+ 	width: 44px;
+ 	height: 44px;
+ 	background: url("../img/dialog-close.svg") no-repeat center center;
+}
+
+.footnote-close:focus{ outline: none; }
+.footnote-close::-moz-focus-inner{ border: 0; }
+
+.footnote-close::before{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: 6px;
+	left: calc(50% - 17px);
+	width: 23px;
+	height: 24px;
+}	
+
+.footnote-close:focus::before{
+	background: linear-gradient(var(--background-color), var(--background-color)) padding-box, 
+	repeating-linear-gradient(-45deg, rgba(0,0,0,.2) 0, rgba(0,0,0,.2) 25%, transparent 0, transparent 50%);
+	background-size: 4px 4px;
+	border: 3px solid transparent;
+}	
+
+/*--------------------------*/
+/* Background to cover text */
+/*--------------------------*/
+.footnote-expanded{ position: relative; }
+
+.footnote-expanded::after{
+	content: ' ';
+	width: calc(100% + 4px);
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: var(--background-color);
+	opacity: .8;
+}
+
+.autoportrait-nodes > *:nth-child(even) .footnote-expanded::after{
+	width: 100%;
+}
+

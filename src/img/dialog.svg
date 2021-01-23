@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="11" height="11" viewBox="0 0 11 11">
+	<polyline fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#F7F406" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="7.5,5.285 4.732,8.393 1.95,5.285"/>
+	<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#F7F7F7" points="8.332,0 1.202,0 1.202,2.049 4.732,6.147 8.332,2"/>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#4C4F51" d="M0,2l4.347,5.25c0,0,0.422,0.422,0.766,0S9.597,2,9.597,2H8.332	L4.732,6.147L1.202,2L0,2z"/>
+</svg>

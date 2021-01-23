@@ -1,0 +1,361 @@
+/*---------------------------------*/
+/* Header CENTER layout (mobile) */ 
+/*---------------------------------*/
+
+.home-intro{
+  display: grid;
+  grid-template-columns: minmax(0, 24rem);
+	grid-template-rows: 8.9vw 9.1vw auto 4vw auto;
+	justify-content: center;
+	margin: 3rem 0 0 0;
+}
+
+/* hack 001: should be home intro margin-bottom
+	 but this provides top room for scrolltoView */
+.autoportrait-nodes{ padding-top: 5rem; }
+
+@media screen and (min-width: $center-header-top) { 
+	.home-intro{
+		grid-template-rows: 2.25rem 2.25rem auto 1.0625rem auto;
+	}
+}
+
+
+.home-intro-title{
+	grid-column: 1;
+	grid-row: 1 / 2;
+	z-index: 1;
+}
+
+.home-intro-author{
+	grid-column: 1;
+	grid-row: 4 / 5;
+	z-index: 1;
+	align-self: start;
+	justify-self: center;
+}
+
+.home-intro-imgs{
+	grid-column: 1;
+	grid-row: 2 / 5;
+}
+
+.home-intro-imgs-stamp{
+	display: none;
+}
+
+.home-intro-desc{
+	grid-column: 1;
+	grid-row: 5 / 6;
+	justify-self: center;
+}
+
+/*---------------------------------------*/
+/* Header CENTER general styles (mobile) */ 
+/*---------------------------------------*/
+
+.home-intro-title, .home-intro-author{
+	font-family: "James Stroker", "Times New Roman", Times, serif;
+	font-size: 19.2vw;
+	line-height: 1;
+	margin-left: -7px;
+	text-align: center;
+}
+
+@media screen and (min-width: $center-header-top) { 
+	.home-intro-title{
+		font-size: 5.1rem; 
+	}
+}
+
+.home-intro-author{
+	font-size: 5.5vw; /* pushes down 4vw row size */
+	margin-left: 10px;
+}
+
+@media screen and (min-width: $center-header-top) { 
+	.home-intro-author{
+		font-size: 1.57395625rem; 
+	}
+}
+
+.home-intro-imgs img{
+	width: 100%;
+}
+
+.home-intro-desc{
+	font-size: .875rem;
+	line-height: 1.4;
+	margin-top: 1rem;
+	text-align: center;
+	max-width: 27rem;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/* text adjustments for bigger centered header */
+@media screen and (min-width: 22em) { 
+	.home-intro-desc{
+		font-size: 1rem;
+		line-height: 1.5;
+		margin-top: 1.3rem;
+	}
+}
+
+@media screen and (min-width: 28em) { 
+	.home-intro-desc{
+		font-size: 1.0625rem;
+		line-height: 1.5;
+		margin-top: 1.5rem;
+	}
+}
+
+@media screen and (min-width: 32em) { 
+	.home-intro-desc{
+		max-width: 29rem;
+	}
+}
+
+.home-intro-desc strong{
+	font-family: "Cooper BT W03 Medium Italic", "Times New Roman", Times, serif;
+}
+
+.home-intro-desc a{
+	color: inherit;
+	text-decoration: none;
+	background: linear-gradient(var(--emphasis-color), var(--emphasis-color)) no-repeat;
+	background-size: 100% 9px;
+	background-position: 0 .95rem;
+}
+
+.home-intro-desc a:focus, .home-intro-desc a:hover{
+	outline: none;
+	text-decoration: none;
+	color: #000;
+	padding: 0 3px;
+	background: linear-gradient(var(--emphasis-color), var(--emphasis-color)) padding-box, 
+	repeating-linear-gradient(-45deg, #000 0, #000 25%, transparent 0, transparent 50% );
+	background-size: 4px 4px;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	margin-left: -3px;
+	margin-right: -3px;
+}
+
+/*-----------------------------------------*/
+/* Header LEFT SMALL layout (mobile-wider) */ 
+/*-----------------------------------------*/
+
+@media screen and (min-width: $side-header-small) { 
+
+	.home-intro{
+	  grid-template-columns: 22rem 5.12rem 30px;
+	  grid-template-rows: auto 2.4rem auto auto auto;
+	  justify-content: end;
+	  margin: 4rem 0 0 0;
+	}
+
+	.home-intro-title{
+		grid-row: 1 / 3;
+		grid-column: 1 / 2;
+		justify-self: start;
+		align-self: end;
+	}
+
+	.home-intro-author{
+		grid-row: 1 / 3;
+		grid-column: 2 / 3;
+		z-index: 1;
+		align-self: center;
+		justify-self: end;
+		margin-bottom: 0;
+	}
+
+	.home-intro-imgs{
+		grid-row: 2 / 5;
+		grid-column: 1 / 3;
+		justify-self: end;
+	}
+
+	.home-intro-desc{
+		grid-row: 5 / 6;
+		grid-column: 2 / 3;
+		justify-self: end;
+	}
+
+}
+
+/*-------------------------------------------------*/
+/* Header LEFT SMALL general styles (mobile-wider) */ 
+/*-------------------------------------------------*/
+
+@media screen and (min-width: $side-header-small) { 
+
+	.home-intro-title{
+		font-size: 4.8rem;
+		line-height: 1;
+		transform: rotate(-2.5deg);
+	}
+
+	.home-intro-author{
+		font-size: 1.4rem;
+		line-height: .9;
+		text-align: left;
+		transform: rotate(-2.5deg);
+		margin-bottom: 17px;
+	}
+
+	.home-intro-imgs{
+		position: relative;
+		width: 100%;
+		max-width: 24rem; 
+	}
+
+	.home-intro-imgs-stamp{
+		display: block;
+		position: absolute;
+		left: -60px;
+		bottom: -35px;
+		width: 84px;
+		height: 84px;
+		background: url(../img/sello.png) no-repeat 0 0;
+		background-size: 100% 100%;
+	}
+
+	.home-intro-desc{
+		width: 23rem;
+		text-align: right;
+		margin-top: .875rem;
+	}
+
+}
+
+/*--------------------------------------------------*/
+/* Header LEFT SMALL/MEDIUM layout (mobile-desktop) */ 
+/*--------------------------------------------------*/
+
+@media screen and (min-width: $side-header-small-medium) { 
+
+	.home-intro{
+	  grid-template-columns: 27rem 6.2rem 30px;
+	  grid-template-rows: auto 2.9rem auto auto auto;
+	}
+
+	/* hack 001 */
+	.autoportrait-nodes{ padding-top: 7rem; }
+
+}
+
+/*----------------------------------------------------------*/
+/* Header LEFT SMALL/MEDIUM general styles (mobile-desktop) */ 
+/*----------------------------------------------------------*/
+
+@media screen and (min-width: $side-header-small-medium) { 
+
+	.home-intro-title{
+		font-size: 5.8rem;
+	}
+
+	.home-intro-author{
+		font-size: 1.7rem;
+		margin-bottom: 17px;
+	}
+
+	.home-intro-imgs{
+		max-width: 29rem; 
+	}
+
+}
+
+/*-------------------------------------------*/
+/* Header LEFT MEDIUM layout (desktop-small) */ 
+/*-------------------------------------------*/
+
+@media screen and (min-width: $side-header-medium) { 
+
+	.home-intro{
+	  grid-template-columns: 34rem 8rem 10px;
+	  grid-template-rows: auto 3.75rem auto auto auto;
+	  justify-content: end;
+	  margin: 8rem 0 0 0;
+	}
+
+	/* hack 001 */
+	.autoportrait-nodes{ padding-top: 11rem; }
+
+}
+
+/*---------------------------------------------------*/
+/* Header LEFT MEDIUM general styles (desktop-small) */ 
+/*---------------------------------------------------*/
+
+@media screen and (min-width: $side-header-medium) { 
+
+	.home-intro-title{
+		font-size: 7.3rem;
+	}
+
+	.home-intro-author{
+		font-size: 2.125rem;
+		margin-bottom: 28px;
+	}
+
+	.home-intro-imgs{
+		max-width: 37rem; 
+	}
+
+	.home-intro-imgs-stamp{
+		left: -100px;
+		bottom: -55px;
+		width: 130px;
+		height: 130px;
+	}
+
+	.home-intro-desc{
+		font-size: 1.125rem;
+		margin-top: 1.5rem;
+	}
+
+}
+
+
+/*---------------------------------------*/
+/* Header LEFT BIG layout (desktop-big+) */ 
+/*---------------------------------------*/
+
+@media screen and (min-width: $side-header-big) { 
+
+	.home-intro{
+	  grid-template-columns: 41.3rem 9.5rem 20px;
+	  grid-template-rows: auto 4rem auto auto auto;
+	  margin: 10rem 0 0 0;
+	}
+
+}
+
+/*-----------------------------------------------*/
+/* Header LEFT BIG general styles (desktop-big+) */ 
+/*-----------------------------------------------*/
+
+@media screen and (min-width: $side-header-big) { 
+
+	.home-intro-title{
+		font-size: 8.8rem;
+	}
+
+	.home-intro-author{
+		font-size: 2.6875rem;
+	}
+
+	.home-intro-imgs{
+		max-width: 44.2rem; /* 822px 740px */
+	}
+
+	.home-intro-imgs-stamp{
+		left: -125px;
+		bottom: -60px;
+		width: 160px;
+		height: 160px;
+	}
+
+}
