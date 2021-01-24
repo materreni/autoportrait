@@ -20,6 +20,6 @@ To install the required dependencies type:
 	$ npm install
 
 ## Usage
-To run **Autoportrait** use:
+To run **Autoportrait** go to the in the project directory and type:
 
 	$ npm start
