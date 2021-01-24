@@ -1,5 +1,7 @@
 # Autoportrait
-A small ReactJS project to test accessibility solutions for SPAs in a real-world implementation
+A small ReactJS project to test accessibility solutions for SPAs in a real-world implementation. 
+
+Everyday, a bot posts a new sentence from the book Autoportrait by Edóuard Levé. A small but thorough ReactJS project conceived to explore real-world solutions to common accessibility challenges when building SPAs: client-side routing, state change notifications, focus management, modal windows, etc. The back-end is simulated by a JSON file who schedules each post by publishing date. The data was scraped with PHP from the English and Spanish editions of the book.
 
 Project link: http://autoportrait.terreni.com.ar
 
