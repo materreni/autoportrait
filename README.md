@@ -15,11 +15,11 @@ Enter the project directory:
 
 	$ cd autoportrait
 
-To install the required dependencies type:
+And install the required dependencies:
 
 	$ npm install
 
 ## Usage
-To run **Autoportrait** go to the in the project directory and type:
+To run **Autoportrait** go to the project directory and type:
 
 	$ npm start
